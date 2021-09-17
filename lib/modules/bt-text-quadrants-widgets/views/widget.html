@@ -1,0 +1,32 @@
+{%- set image = apos.images.first(data.widget.bgImage) or null -%}
+<div class="bt-text-quadrant bt-text-image-bg pv5-ns pv4 bg--black"
+	  style="background-size: cover; background-image:
+	    url({{ apos.attachments.url(image, { crop: image._crop }) }})
+	    {%- if apos.attachments.hasFocalPoint(image) -%}
+	      ; background-position: {{ apos.attachments.focalPointToBackgroundPosition(image._focalPoint) }}
+	    {%- endif -%}
+	  ">
+	<div class="bt-inner">
+		<div class="cf">
+			<div class="mw6 center tc bt-text-quadrant__title">
+				{{ apos.singleton(data.widget, 'title', 'apostrophe-rich-text', module.defaultTextStyles) }}
+			</div>
+		</div>
+		<div class="cf mt3 bb">
+		  <div class="fl w-50 pv4 ph5-ns ph3 tr-ns br-ns w-100-m ph0-m">
+		  	{{ apos.singleton(data.widget, 'textA', 'apostrophe-rich-text', module.defaultTextStyles) }}
+		  </div>
+		  <div class="fr w-50 pv4 ph5-ns ph3 tl bl-ns w-100-m ph0-m">
+		  	{{ apos.singleton(data.widget, 'textB', 'apostrophe-rich-text', module.defaultTextStyles) }}
+		  </div>
+	  </div>
+	  <div class="cf mb4 bt-ns">
+		  <div class="fl w-50 pv4 ph5-ns ph3 tr-ns br-ns w-100-m ph0-m">
+		  	{{ apos.singleton(data.widget, 'textC', 'apostrophe-rich-text', module.defaultTextStyles) }}
+		  </div>
+		  <div class="fr w-50 pv4 ph5-ns ph3 tl bl-ns w-100-m ph0-m">
+		  	{{ apos.singleton(data.widget, 'textD', 'apostrophe-rich-text', module.defaultTextStyles) }}
+		  </div>
+	  </div>
+  </div>
+</div>

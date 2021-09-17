@@ -1,0 +1,45 @@
+{#
+  This file extends Apostrophe's outerLayoutBase template, which we don't recommend
+  overriding directly. Changes in this file, if any, are usually block overrides to
+  modify the outer chrome, outside the main content area of the page. Most of the
+  time you should just edit `layout.html` in the top level `views/` folder.
+#}
+
+{% extends "outerLayoutBase.html" %}
+
+
+{% block title %}Bites Media{% endblock %}
+
+{% block startHead %}
+{# Favicon #}
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico?v=3" type="image/x-icon" />
+<link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous" >
+{# FB OG Tags #}
+<meta property="og:url" content="http://bitesmedia.com{{ data.piece._url or data.page._url }}" />
+<meta property="og:title" content="Bites | Stay Hungry" />
+<meta property="og:description" content="{{ data.piece.ogDescription or 'Bites is a source of brain food to power your understanding of the world around you.'}}" />
+{#{%- set image = (apos.images.first(data.piece.thumbnail) or apos.images.first(data.page)) or null -%}#}
+<meta property="og:image" content="{% if image %}{{ apos.attachments.url(image, {size: 'one-third'}) }}{% else %}/images/bites_logo_bw.png{% endif %}" />
+<meta property="og:image:width" content="380">
+<meta property="og:image:height" content="380">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93744501-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-93744501-1');
+</script>
+
+{% endblock %}
+
+
+{% block bodyClass -%}
+  {% if data.user %}apos-user{% endif %}
+{%- endblock %}

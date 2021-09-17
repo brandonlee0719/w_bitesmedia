@@ -1,0 +1,39 @@
+{% macro base(data) %}
+	<div class="apos-slideshow{% block outerClass %}{% endblock %}">
+		<section class="main_image_title slider">
+		  {% for article in data.widget._pieces %}
+				{{ slide(article, loop) }}
+		  {% endfor %}
+		</section>
+	</div>
+{% endmacro %}
+
+{% macro slide(article, loop) %}
+
+	{%- set image = apos.images.first(article.marqueeImage) or null -%}
+
+	<div data-slideshow-item		
+	  class="bt-home-marquee__item apos-slideshow-item{% if loop.first %} apos-current{% endif %}{% block itemClass %}{% endblock %}"
+	  style="background-image:url({{ apos.attachments.url(image, { size: data.options.size, crop: image._crop }) }});
+	    background-size: cover
+	    {%- if apos.attachments.hasFocalPoint(image) -%}
+	      ; background-position: {{ apos.attachments.focalPointToBackgroundPosition(image._focalPoint) }}
+	    {%- endif -%}
+	  ">
+	  <img alt="{% block imgAlt %}{{ image.title }}{% endblock %}" data-image src="{% block imgSrc %}{{ apos.attachments.url(image, { size: data.options.size, crop: image._crop }) }}{% endblock %}" />
+		<div class="bt-inner home-slick-slide-text">
+			<div class="bt-home-marquee__item__body">
+				<div class="bt-home-marquee__item__title bt-color--white mb3 bt--heavy">
+					{{ article.title }}
+				</div>
+				<div class="bt-home-marquee__item__subtitle bt-color--white">
+					{{ article.subtitle }}
+				</div>
+				<div class="bt-home-marquee__item__button">
+					<a href="{{ article._url }}" class="bt-button"><span>Read It</span><span></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+

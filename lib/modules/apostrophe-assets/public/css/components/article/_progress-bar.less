@@ -1,0 +1,74 @@
+.bt-progress-bar
+{
+	width: 100%;
+	position: relative;
+	padding: 1.5rem 0;
+	background-color: @blue-light;
+
+	@media(max-width: @compact)
+	{
+		padding: 1rem 0;
+	}
+
+	.bt-inner
+	{
+
+	}
+
+	.bt-progress-bar-container {
+		justify-content: space-around;
+	}
+
+	.bt-progress-bar__title
+	{
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		float: left;
+		width: 300px;
+		margin-left: 30px;
+		overflow: hidden;
+	}
+
+	.bt-progress-bar__empty
+	{
+		width: 100%;
+		background: @blue;
+		border-radius: 4px;
+		height: 8px;
+	}
+
+	.bt-progress-bar__percent
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 8px;
+		width: 0px;
+		background: @white;
+		border-radius: 4px;
+
+		.transition(width .15s ease);
+	}
+
+	.bt-progress-bar__container
+	{
+		margin-left: 0.5rem;
+		margin-top: 4px;
+		position: relative;
+		float: right;
+		margin-right: 30px;
+		width: calc(100% - 330px);
+
+		@media(max-width: @narrow) {
+			width: 100%;
+			margin-left: 0;
+			margin-top: 1rem;
+			float: left;
+		}
+		@media(max-width: @compact)
+		{
+				margin-top: 0.5rem;
+		}
+
+	}
+}

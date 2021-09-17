@@ -1,0 +1,37 @@
+{% extends "outerLayout.html" %}
+
+
+{% import 'components/header.html' as header with context %}
+{% import 'components/footer.html' as footer with context %}
+
+
+{% block apostropheMenu %}
+  {% if data.user._permissions.admin === true %}
+    {{ apos.adminBar.output() }}
+  {% endif %}
+{% endblock %}
+
+{% block main %}
+	{# Header #}
+	{{ header.base(data.page, data.piece) }}
+	{# Marquee #}
+	<div class="bt-marquee">
+		{% block marquee %}
+		{% endblock %}
+	</div>
+	{# Main #}
+	{% block mainOuter %}
+	<div class="bt-inner">
+		{% block mainContent %}
+		{% endblock %}
+	</div>
+	{% endblock %}
+
+
+	{# Footer #}
+	{{ footer.base(data.page, data.piece) }}
+
+	{% if data.user %}
+	<div style="display:none" data-article-id="{{ data.piece._id}}" data-article-slug="{{ data.piece.slug}}" data-apos-user="{{ data.user | dump | escape }}"></div>
+	{% endif %}
+{% endblock main %}

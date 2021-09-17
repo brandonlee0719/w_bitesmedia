@@ -1,0 +1,46 @@
+.bt-forms-widget
+{
+	h4
+	{
+		.mb6;
+
+		font-weight: 600;
+		.font-size(@text-large);
+	}
+	.bt-forms-widget__question
+	{
+		.mb5;
+
+		.bt-forms-widget__prompt
+		{
+			.font-size(@text-medium);
+			.mb3;
+		}
+
+		.bt-forms-widget__answer-text
+		{
+			input, textarea
+			{
+				height: 120px;
+			}
+		}
+		.bt-forms-widget__answer-choice
+		{
+			.mb3;
+			input
+			{
+				display: inline-block;
+			}
+			label 
+			{
+				clear: right;
+			}
+		}
+	}
+
+	[data-form-message]
+	{
+		.ml3;
+		.mt5;
+	}
+}

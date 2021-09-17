@@ -1,0 +1,40 @@
+{% extends 'apostrophe-templates:layout.html' %}
+
+{% block bodyClass %}bt-article{% endblock %}
+
+{% block extraHead %}
+<script src="/js/vendor/talkify.min.js"></script>
+{% endblock %}
+
+{% block marquee %}
+	<div class="bt-article-marquee">
+		<div class="bt-article-marquee__image">
+			{{ apos.singleton(data.piece, 'marqueeImage', 'apostrophe-images') }}
+		</div>
+		<div class="cf center">
+			<div class="bt-article-marquee__body cf mb4">
+				<h4 class="f-headline">{% for c in data.piece._categories %}{{ c.title }}{% if not loop.last %},{% endif %} {% endfor %}</h3>
+				<h1>{{ data.piece.title }}</h1>
+				<h2>{{ data.piece.subtitle }}</h2>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block mainOuter %}
+	<div class="cf bt-article__body">
+		{{ apos.area(data.piece, 'mainContentArea', module.defaultAreaOptions) }}
+	</div>
+	<div class="bt-term-modal-screen"></div>
+	<div class="bt-term-modal">
+		<div class="bt-term-modal__header">Key Vocabulary</div>
+		<div class="bt-term-modal__body">
+			<div class="bt-term-modal__image"></div>
+			<div class="bt-term-modal__detail">
+				<div class="bt-term-modal__term"></div>
+				<div class="bt-term-modal__def"></div>
+				<div class="bt-term-modal__example"></div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

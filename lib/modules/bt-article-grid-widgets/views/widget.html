@@ -1,0 +1,10 @@
+{% import 'apostrophe-templates:components/articleTile.html' as articleTile with context %}
+
+
+<div class="bt-article-grid cf">
+	<div class="bt-article-grid__items">
+		{% for article in data.widget._pieces %}
+			{{ articleTile.base(article) }}
+		{% endfor %}
+	</div>
+</div>

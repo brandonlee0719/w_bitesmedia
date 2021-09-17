@@ -1,0 +1,14 @@
+{%- set image = apos.images.first(data.widget.bgImage) or null -%}
+<div class="bt-text-image-bg cf pv5-ns pv4 bg--{{ data.widget.bgColor or 'white' }}"
+	  style="background-size: cover; background-image:
+	    url({{ apos.attachments.url(image, { size: data.widget.options.size, crop: image._crop }) }})
+	    {%- if apos.attachments.hasFocalPoint(image) -%}
+	      ; background-position: {{ apos.attachments.focalPointToBackgroundPosition(image._focalPoint) }}
+	    {%- endif -%}
+	  ">
+	<div class="bt-inner">
+	  <div class="fl w-100">
+	  	{{ apos.singleton(data.widget, 'text', 'apostrophe-rich-text', module.defaultTextStyles) }}
+	  </div>
+  </div>
+</div>

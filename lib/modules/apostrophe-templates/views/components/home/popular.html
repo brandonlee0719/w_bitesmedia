@@ -1,0 +1,13 @@
+{% macro base(article, loop) %}
+{% set image = apos.images.first(article.marqueeImage) or null -%}
+    <div class="popular-item {% if loop.index > 5 %}more{% endif %}" >
+        <a href="/articles/{{ article.slug }}">
+            <div class="image-overlay"></div>
+            <img alt="{% block imgAlt %}{{ image.title }}{% endblock %}" data-image src="{% block imgSrc %}{{ apos.attachments.url(image, { size: data.options.size, crop: image._crop }) }}{% endblock %}" />
+            <div class="popular-text">
+                <h5 class="uppercase">{{ article._categories[0].title }}</h5>
+                <h3>{{ article.title }}</h3>
+            </div>
+        </a>
+    </div>
+{% endmacro %}

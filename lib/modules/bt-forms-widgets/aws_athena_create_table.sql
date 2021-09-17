@@ -1,0 +1,53 @@
+forms CREATE EXTERNAL TABLE IF NOT EXISTS assessments.forms (
+  title string,
+  slug string,
+  timestamp string,
+  date string,
+  user_title string,
+  user_id string,
+  user_username string,
+  user_email string,
+  question_1 string,
+  answer_1 string,
+  question_2 string,
+  answer_2 string,
+  question_3 string,
+  answer_3 string,
+  question_4 string,
+  answer_4 string,
+  question_5 string,
+  answer_5 string,
+  question_6 string,
+  answer_6 string,
+  question_7 string,
+  answer_7 string,
+  question_8 string,
+  answer_8 string,
+  question_9 string,
+  answer_9 string,
+  question_10 string,
+  answer_10 string,
+  question_11 string,
+  answer_11 string,
+  question_12 string,
+  answer_12 string,
+  question_13 string,
+  answer_13 string,
+  question_14 string,
+  answer_14 string,
+  question_15 string,
+  answer_15 string,
+  question_16 string,
+  answer_16 string,
+  question_17 string,
+  answer_17 string,
+  question_18 string,
+  answer_18 string
+)  
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = ',',
+  'field.delim' = ','
+) LOCATION 's3://bitesmedia/Assessments/';
+
+select * from forms

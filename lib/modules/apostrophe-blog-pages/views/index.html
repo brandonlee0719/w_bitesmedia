@@ -1,0 +1,15 @@
+{% extends 'apostrophe-templates:outerLayout.html' %}
+
+{% block main %}
+
+<div class="cf center mw7">
+	<div class="cf mv4">
+		<h3 class="f-headline">article index</h3>
+	</div>
+	<div class="cf">
+		{%- for article in data.pieces -%}
+	    <a href="{{ article._url }}">{{ article.title }}</a>
+	  {%- endfor -%}
+  </div>
+</div>
+{% endblock %}

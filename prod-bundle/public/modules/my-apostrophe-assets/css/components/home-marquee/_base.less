@@ -1,0 +1,143 @@
+.bt-home-marquee
+{
+	min-height: 70vh;
+	overflow: hidden;
+
+	.apos-slideshow-cover;
+	.apos-area 
+	{
+		position: relative;
+		min-height: 70vh;
+	}
+
+
+	.bt-home-marquee__item 
+	{
+		position: relative;
+		min-height: 70vh;
+		background-blend-mode: multiply;
+		background-color: @gray-1;
+
+		img[data-image]
+		{
+			position: absolute;
+		}
+
+
+		.bt-home-marquee__item__body
+		{
+			position: absolute;
+			top: 8vh;
+			max-width: 773px;
+		}
+
+		.bt-home-marquee__item__title
+		{
+			.f--largest;
+			.bt--black;
+			// @media (max-width: @narrow) {
+			// 	.f--larger;
+			// }
+			@media (max-height: 700px) {
+				.f--larger;
+			}
+			@media(max-width: @narrow)
+			{
+				font-size: 4rem;
+			}
+			@media(max-width: @compact)
+			{
+				margin-top: 1.5rem;
+				font-size: 2.5rem;
+			}
+
+		}
+		.bt-home-marquee__item__subtitle
+		{
+			.f--large;
+			@media(max-width: @compact)
+			{
+				font-size: 2.5rem;
+			}
+
+			// @media (max-width: @narrow) {
+			// 	.f--large;
+			// }
+			@media (max-height: 600px) {
+				.f--medium;
+			}
+		}
+		.bt-home-marquee__item__button
+		{
+			position: relative;
+			margin-top: 8vh;
+			margin-bottom: 3rem;
+			// bottom: 30%;
+			font-size: 1.5rem;
+		}
+
+	}
+
+	[data-slideshow-items]
+	{
+		max-height: 70vh;
+	}
+	.apos-slideshow-button
+	{
+		font-size: 6rem;
+		opacity: 0.6;
+		.transition(opacity @t1 ease);
+		&:hover 
+		{
+			opacity: 1;
+		}
+	}
+	.apos-slideshow-button.apos-slideshow-next
+	{
+		right: 4%;
+	}
+
+
+	@media (max-width: @inner + 200px) {
+		min-height: 80vh;
+		.apos-slideshow-cover;
+		.apos-area 
+		{
+			min-height: 80vh;
+		}
+		.bt-home-marquee__item {
+			min-height: 80vh;
+		}
+
+		.bt-home-marquee__item__body {
+			padding: 0 4rem;
+		}
+
+		.apos-area .apos-slideshow-button i {
+			font-size: 5rem;
+			line-height: 5rem;
+		}
+	}
+
+	@media(max-width: @compact)
+	{
+		.bt-home-marquee__item__body {
+			padding: 0 0.25rem;
+
+			.bt-button
+			{
+				.transform(translateX(1rem));
+			}
+		}
+
+		// .apos-area .apos-slideshow-button i {
+		// 	font-size: 3.5rem;
+		// 	line-height: 3.5rem;
+		// }
+
+		.apos-slideshow-button.apos-slideshow-prev
+		{
+			display: none;
+		}
+	}
+}

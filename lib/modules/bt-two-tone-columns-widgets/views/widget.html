@@ -1,0 +1,24 @@
+{%- set image = apos.images.first(data.widget.bgImage) or null -%}
+<div class="bt-two-tone-columns cf bg--{{ data.widget.bgColor or 'white' }}"
+	  style="background-size: cover; background-image:
+	    url({{ apos.attachments.url(image, { size: data.widget.options.size, crop: image._crop }) }})
+	    {%- if apos.attachments.hasFocalPoint(image) -%}
+	      ; background-position: {{ apos.attachments.focalPointToBackgroundPosition(image._focalPoint) }}
+	    {%- endif -%}
+	  ">
+
+	 <div class="cf">
+	 		<div class="fl w-100">
+		 		<div class="w-50 pr3 pv5 bt-two-tone-columns__left">
+		 			<div class="bt-inner">
+		  			{{ apos.area(data.widget, 'left', module.defaultAreaOptions) }}
+		  		</div>
+		 		</div>
+		 		<div class="w-50 pr3 pv5 bt-two-tone-columns__right">
+		 			<div class="bt-inner">
+		  			{{ apos.area(data.widget, 'right', module.defaultAreaOptions) }}
+		  		</div>
+		 		</div>
+	 		</div>
+	 </div>
+</div>

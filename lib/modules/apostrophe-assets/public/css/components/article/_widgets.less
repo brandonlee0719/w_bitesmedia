@@ -1,0 +1,179 @@
+.bt-text-colored-bg
+{
+	width: 100%;
+
+
+	&.bg--blue
+	{
+		.apos-rich-text
+		{
+			h1,h2,h3,h4,h5,h6,p,ul,li,a,.bt-term
+			{
+				color: @white;
+			}
+		}
+	}
+
+}
+
+.bt-text-image-bg
+{
+	background-blend-mode: multiply;
+
+	.apos-rich-text
+	{
+		h1,h2,h3,h4,h5,h6,p,ul,li,a,.bt-term
+		{
+			color: @white;
+		}
+	}
+}
+
+.bt-two-tone-columns
+{
+	display: table;
+  width: 100%;
+	.apos-rich-text
+	{
+		max-width: 480px;
+		margin: 0 auto;
+
+		h1,h2,h3,h4,h5,h6,p,ul,li,a,.bt-term
+		{
+			color: @white;
+		}
+	}
+	.apos-slideshow
+	{
+		max-width: 480px;
+		margin: 1rem auto;
+	}
+	.bt-text.pv6
+	{
+		.pv5;
+	}
+
+	.bt-image.pv5
+	{
+		.pv0;
+	}
+
+	.bt-two-tone-columns__left
+	{
+		display: table-cell;
+		width: 50vw;
+		background-blend-mode: multiply;
+		background-color: fade(@blue-light, 80%);
+	}
+	.bt-two-tone-columns__right
+	{
+		display: table-cell;
+		width: 50vw;
+		background-blend-mode: multiply;
+		background-color: fade(@blue, 80%);
+	}
+
+	.bt-two-tone-columns__right,
+	.bt-two-tone-columns__left
+	{
+		@media(max-width: @compact)
+		{
+			display: block;
+			width: 100%;
+		}
+	}
+
+}
+
+.bt-two-col
+{
+
+	&.pv5.bg-color--grey-1,
+	&.pv5.bg-color--blue-light,
+	&.pv5.bg-color--dark,
+	&.pv5.bg-color--blue
+	{
+		.pv6
+	}
+
+	.bt-text.pv6
+	{
+		.pv4;
+	}
+	.bt-image.pv5
+	{
+		.pv2;
+	}
+
+	.w-50
+	{
+		@media(max-width: @compact)
+		{
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+
+.bt-text-quadrant
+{
+
+	.bt-text-quadrant__title
+	{
+		.apos-rich-text
+		{
+			font-weight: 300;
+			letter-spacing: 0.3em;
+		}
+	}
+	.w-50
+	{
+		border-color: @dark;
+
+		@media(max-width: @compact)
+		{
+			border-color: transparent;
+			width: 100%;
+			padding: inherit 0;
+		}
+	}
+}
+
+.bt-image-desc
+{
+	.mt3;
+	p
+	{
+		font-style: italic;
+	}
+}
+
+.bt-youtube-contain
+{
+	border: 20px solid #0072b2;
+	margin-bottom: -100px;
+	z-index: 1;
+	width: 70%;
+}
+
+.bt-youtube-contain>div
+{
+	padding: 0;
+	margin: 0;
+}
+
+.bt-youtube
+{
+	iframe
+	{
+		min-height: 500px;
+	}
+
+	@media(max-width: @compact) {
+		iframe
+		{
+			min-height: 380px;
+		}
+	}
+}

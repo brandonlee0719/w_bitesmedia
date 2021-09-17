@@ -1,0 +1,11 @@
+{% import "apostrophe-schemas:macros.html" as schemas %}
+
+<form class="apos-submit-pieces-form apos-ui" data-apos-pieces-submit-form>
+  {% set schema = module.filterUserSchema(data.schema) %}
+  {{ schemas.fields(schema, { tabs: false }) }}
+  <input type="submit" class="sign-up-button standard-button" value="Sign Up"></input>
+  {# Later gets hoisted out and becomes visible #}
+  <div class="apos-pieces-submit-thank-you" data-apos-pieces-submit-thank-you>
+    <h4>Thank you! Sign up Successful.  Please <a href="/login">Login</a>.</h4>
+  </div>
+</form>

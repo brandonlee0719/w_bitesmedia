@@ -1,0 +1,66 @@
+.apos-rich-text
+{
+	max-width: 664px;
+
+	margin: 2rem auto 0;
+
+	h2 + p, h3 + p, h4 + p 
+	{
+		margin-top: 0.75rem;
+	}
+
+	ul 
+	{
+		margin: 3rem 0 0;
+		padding-bottom: 3rem;
+
+		@media(max-width: @compact)
+		{
+			padding-left: 1.5rem;
+			padding-right: 0.5rem;
+		}
+
+		li 
+		{
+			.font-size(@text-medium);
+			line-height: 34px;
+			padding-left: 1rem;
+			margin-bottom: 1rem;
+			list-style-image: url('/images/bullet.png');
+		}
+	}
+
+	em 
+	{
+		font-style: italic;
+	}
+
+
+	h2 
+	{
+		.font-size(@text-larger);
+		font-weight: 900;
+	}
+	h3 
+	{
+		.font-size(@text-large);
+		font-weight: 900;
+	}
+	h4 
+	{
+		.font-size(@text-large);
+		font-weight: 400;
+	}
+
+	p 
+	{
+		.font-size(@text-medium);
+		line-height: 34px;
+		font-weight: 300;
+	}
+}
+
+.highlight_style {
+	background-color: yellow;
+	color: white;
+}

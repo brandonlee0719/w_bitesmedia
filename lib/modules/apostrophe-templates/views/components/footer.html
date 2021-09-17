@@ -1,0 +1,44 @@
+{% macro base(page, piece) %}
+  {% if page.type === 'apostrophe-blog-page' %}
+  <div class="bt-footer-block "></div>
+  {% endif %}
+  <div class="bt-footer bg--blue">
+    <div class="cf bt-inner">
+      <div class="fl w-70 tl">
+        <a href="/">
+          <img class="bt-logo bt-logo-footer" src="/images/bites_logo_bw.png" width="210" height="50" alt="Logo">
+        </a>
+      </div>
+      <div class="fl w-50-ns w-100 pr4-ns bt-color--white">
+        <div class="footer_">
+          <a href="/">HOME</a>
+          <a href="/categories">CONTENT</a>
+          <a href="/about-us">ABOUT US</a>
+        </div>
+      </div>
+      <div class="fl w-50-ns w-100 bt-color--white">
+        <div class="footer_">
+          {% if data.user %}
+          <div style="margin-bottom: 15px"></div>
+          <div><a href="/signup"></div>
+          {% else %}
+          <div style="margin-bottom: 15px"><a href="/login">SIGN IN</a></div>
+          <div><a href="/signup">SIGN UP</a></div>
+          {% endif %}
+          <div class="connect-with-us">Connect with us on:</div>
+          <div class="social-media-icons">
+            <div><a href="https://www.facebook.com/bitesnews/" target="_blank"><img class="facebook" src="/images/social-media-icons/facebook-white.png" /></a></div>
+            <div><a href="https://twitter.com/bites_media" target="_blank"><img class="twitter" src="/images/social-media-icons/twitter-white.png" /></a></div>
+            <div><a href="https://www.instagram.com/bitesmedia/" target="_blank"><img class="instagram" src="/images/social-media-icons/instagram-white.png" /></a></div>
+            <div><a href="https://www.linkedin.com/company/bitesmedia.com/" target="_blank"><img class="linkedin" src="/images/social-media-icons/linkedin-white.jpg" /></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project_info">
+      <p class="text1"><a href="/privacy-policy">Privacy Policy</a></p>
+      <p class="text2"><a href="/terms-of-use">Terms of Use</a></p>
+      <p class="text3">© Bites Media 2018</p>
+    </div>
+  </div>
+{% endmacro %}

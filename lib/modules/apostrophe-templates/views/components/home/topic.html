@@ -1,0 +1,24 @@
+<script src="../../../../apostrophe-blog/index.js"></script>{% macro base(data) %}
+    <div class="topics">
+        <div class="slider-content">
+            <p class="title">TOPICS</p>
+            <div class="img-content">
+                {% for article in data.widget._pieces %}
+                    {{ topicIcon(article, loop) }}
+                {% endfor %}
+            </div>
+
+            <section class="topic_slider regular slider">
+
+            </section>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro topicIcon(topic, loop) %}
+    {%- set image = apos.images.first(topic.thumbnail) or null -%}
+    <div class="item" data-number="{{loop.index}}" data-id="{{topic._id}}">
+        <img src="{{ apos.attachments.url(image) }}" />
+        <span>{{topic.title}}</span>
+    </div>
+{% endmacro %}

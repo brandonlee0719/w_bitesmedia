@@ -1,0 +1,22 @@
+{% macro base(article) %}
+<div class="bt-article-tile fl pa3">
+	<a href="{{ article._url }}">
+		{%- set image = apos.images.first(article.thumbnail) or apos.images.first(article.marqueeImage) or null -%}
+		<div data-slideshow-item		
+		  class="bt-article-tile__image"
+		  style="background-image:
+		    url({{ apos.attachments.url(image, { size: data.options.size, crop: image._crop }) }})
+		    {%- if apos.attachments.hasFocalPoint(image) -%}
+		      ; background-position: {{ apos.attachments.focalPointToBackgroundPosition(image._focalPoint) }}
+		    {%- endif -%}
+		  "></div>	
+		
+		<div class="bt-article-tile__category">
+			{{ article._categories[0].title }}
+		</div>
+		<div class="bt-article-tile__title">
+			{{ article.title }}
+		</div>
+	</a>
+</div>
+{% endmacro %}

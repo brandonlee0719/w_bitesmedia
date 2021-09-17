@@ -1,0 +1,23 @@
+{% set form = data.widget._pieces[0] %}
+
+<div class="bite_breakdown">
+    <h3>BITES BREAKDOWN</h3>
+
+    <p class="title-text">{{ form.questions[0].prompt }}</p>
+    <div class="img-content">
+
+        <div class="select_item">
+            <div class="message_title">
+                <img class="image_style" src="/images/left_backimg.png">
+                <p class="detail _active">"Fact."</p>
+            </div>
+        </div>
+        <div class="select_item">
+            <div class="message_title">
+                <img class="image_style" src="/images/right_backimg.png">
+                <p class="detail">"Fiction"</p>
+            </div>
+        </div>
+    </div>
+    <div class="read_btn">READ IT</div>
+</div>

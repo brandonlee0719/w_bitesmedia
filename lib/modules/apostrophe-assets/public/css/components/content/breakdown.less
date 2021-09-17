@@ -1,0 +1,151 @@
+.bite_breakdown {
+  padding:10% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    text-align: center;
+    color: #1073b0;
+    font-weight: 800;
+    font-size: 26px;
+  }
+
+  .title-text {
+    text-align: center;
+    color: #316eaa;
+    font-size: 32px;
+    margin-top: 40px;
+    @media(max-width: @compact) {
+      font-size: 24px;
+    }
+  }
+
+  .img-content {
+    display: flex;
+    width: 100%;
+    height: 320px;
+    margin-top: 50px;
+    justify-content: space-between;
+  }
+
+  .breakdown-inner-container {
+    overflow: hidden;
+    height: 400px;
+    position: relative;
+  }
+
+  .option-container, .result-container {
+    transition: all 500ms;
+  }
+
+  .option-container.completed  {
+    transform: translate3d(0, 500px, 0);
+  }
+
+  .result-container {
+    display: flex;
+    justify-content: space-between;
+    transform: translate3d(0, 600px, 0);
+  }
+
+  .result-container.completed  {
+    display: flex;
+    transform: translate3d(0,   0, 0);
+  }
+
+  .result {
+    width: 49%;
+    text-align: center;
+    align-self: flex-end;
+  }
+
+  .result-text {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+  }
+
+  .result-bar {
+    background-color: #5bacd8;
+    width: 100%;
+    border-radius: 5px;
+    transition: all 500ms;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .result-bar.active {
+    background-color: #1073af;
+  }
+
+  .select_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 49%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #5bacd8;
+    cursor: pointer;
+  }
+
+  .select_item:hover {
+    background-color: #1073af;
+  }
+
+  .active {
+    background-color: #1073af;
+  }
+
+  .select_item h3{
+    margin-top: 8%;
+    font-size: 24px;
+    color: white;
+  }
+
+
+  .message_title {
+    margin-top: 45px;
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+
+  .image_style {
+    width: 95%;
+  }
+
+  .detail {
+    position: absolute;
+    margin: 0px;
+    color: #62aed8;
+    font-size: 26px;
+  }
+
+  ._active {
+    color: #1073af;
+  }
+
+  @media(max-width: @compact)
+  {
+    display: block;
+
+    .select_item {
+      width: 100%;
+      height: 150px;
+      margin-bottom: 30px;
+    }
+
+    .img-content {
+      display: block;
+      height: auto;
+    }
+
+    .read_btn {
+      margin: 50px auto;
+    }
+  }
+}

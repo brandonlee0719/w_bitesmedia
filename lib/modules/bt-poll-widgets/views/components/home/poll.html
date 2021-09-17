@@ -1,0 +1,38 @@
+{% macro base(data) %}
+    {% set form = data.widget._pieces[0] %}
+    <div class="bite_breakdown" data-id="{{ form._id }}">
+        <h3>BITES BREAKDOWN</h3>
+
+        <p class="title-text">{{ form.question }}</p>
+        <div class="breakdown-inner-container">
+            <div class="result-container">
+                <div class="result">
+                    <div class="result-text result-a"></div>
+                    <div class="result-bar result-bar-a"></div>
+                </div>
+                <div class="result">
+                    <div class="result-text result-b"></div>
+                    <div class="result-bar result-bar-b"></div>
+                </div>
+            </div>
+
+            <div class="option-container img-content">
+                <div class="select_item item_a" data-option="a">
+                    <div class="message_title">
+                        <img class="image_style" src="/images/left_backimg.png">
+                        <p class="detail _active">"{{ form.optionA }}"</p>
+                    </div>
+                </div>
+                <div class="select_item item_b" data-option="b">
+                    <div class="message_title">
+                        <img class="image_style" src="/images/right_backimg.png">
+                        <p class="detail">"{{form.optionB}}"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="{{ form.path }}">
+            <div class="read_btn">READ IT</div>
+        </a>
+    </div>
+{% endmacro %}

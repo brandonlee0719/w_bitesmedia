@@ -1,0 +1,260 @@
+.box-shadow(@props)
+{
+  box-shadow: @props;
+  -webkit-box-shadow: @props;
+}
+
+.border-radius(@radius)
+{
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.inline-block(@valign)
+{
+  display: inline-block;
+  vertical-align: @valign;
+}
+
+.font-size(@rem)
+{
+  font-size: round(@rem * @root-font-size) * 1px;
+  font-size: @rem * 1rem;
+}
+
+.line-height(@rem)
+{
+  line-height: round(@rem * @root-font-size) * 1em;
+  line-height: @rem * 1rem;
+}
+
+.add-font(@name, @url, @style: normal, @weight: normal)
+{
+  @font-face
+  {
+    font-family: @name;
+    font-weight: @weight;
+    font-style: @style;
+    src: url('@{url}');
+  }
+}
+
+.transition(@properties) {
+  -webkit-transition: @properties;
+  -moz-transition: @properties;
+  -o-transition: @properties;
+  transition: @properties;
+}
+.transition-bounce(@properties)
+{
+  -webkit-transition: @properties cubic-bezier(0.13, 0.63, 0.34, 1.58);
+  -moz-transition: @properties cubic-bezier(0.13, 0.63, 0.34, 1.58);
+  -o-transition: @properties cubic-bezier(0.13, 0.63, 0.34, 1.58);
+  transition: @properties cubic-bezier(0.13, 0.63, 0.34, 1.58);
+}
+.transition-delay(@time)
+{
+  -webkit-transition-delay: @time;
+  transition-delay: @time;
+}
+.noselect
+{
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+.center-vertical
+{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.transform(@string)
+{
+  -webkit-transform:   ~'@{string}';
+  -moz-transform:      ~'@{string}';
+  -ms-transform:       ~'@{string}';
+  -o-transform:        ~'@{string}';
+  transform:           ~'@{string}';
+}
+
+.rotate (@deg)
+{
+  -webkit-transform: rotate(@deg);
+  -moz-transform:    rotate(@deg);
+  -ms-transform:     rotate(@deg);
+  -o-transform:      rotate(@deg);
+}
+
+.filter (@props)
+{
+  filter: @props;
+  -webkit-filter: @props;
+  -moz-filter:    @props;
+  -o-filter:      @props;
+  -ms-filter:     @props;
+}
+
+.placeholder-color(@color: @gray)
+{
+  &::-webkit-input-placeholder { color: @color; }
+  &:-moz-placeholder           { color: @color; }
+  &::-moz-placeholder          { color: @color; }
+  &:-ms-input-placeholder      { color: @color; }
+}
+
+.no-col-break
+{
+  break-inside: avoid-column;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside:avoid;
+  -o-column-break-inside:avoid;
+  -ms-column-break-inside:avoid;
+  column-break-inside:avoid;
+}
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF)
+{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+0,1+100 */
+  background: -moz-linear-gradient(top,  @start 0%, @stop 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  @start 0%,@stop 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  @start 0%,@stop 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  @start 0%,@stop 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  @start 0%,@stop 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{start}', endColorstr='@{stop}',GradientType=0 ); /* IE6-9 */
+}
+
+.animate(@props)
+{
+  -webkit-animation: @props;
+  -moz-animation:    @props;
+  -o-animation:      @props;
+  animation:         @props;
+}
+
+.aspect-ratio(@width, @height)
+{
+  position: relative;
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: (@height / @width) * 100%;
+  }
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.apos-marquee-cover
+{
+  .apos-singleton
+  {
+    height: 100%;
+    .apos-normal-view
+    {
+      height: 100%;
+      .apos-content
+      {
+        height: 100%;
+        .apos-marquee
+        {
+          height: 100%;
+          .apos-marquee-items
+          {
+            height: 100%;
+            display: block;
+            .apos-marquee-item
+            {
+              height: 100%;
+              background-size: cover;
+              background-position: center center;
+              .apos-marquee-image
+              {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.apos-slideshow-cover
+{
+  .apos-area
+  {
+    height: 100%;
+    [data-apos-widget], [data-apos-widgets]
+    {
+      height: 100%;
+      .apos-area-widget-wrapper 
+      {
+        height: 100%;
+      }
+      .apos-area-widget
+      {
+        height: 100%;
+      }
+      .apos-slideshow
+      {
+        height: 100%;
+        [data-slideshow-items]
+        {
+          height: 100%;
+          display: block;
+          .apos-slideshow-item
+          {
+            height: 100%;
+            background-size: cover;
+            background-position: center center;
+            .apos-slideshow-image
+            {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.apos-slideshow-contain
+{
+  .apos-area
+  {
+    height: auto;
+    [data-apos-widget]
+    {
+      height: auto;
+      .apos-slideshow
+      {
+        height: auto;
+        [data-slideshow-items]
+        {
+          height: auto;
+          display: block;
+          .apos-slideshow-item
+          {
+            background-size: contain;
+            background-position: center center;
+            .apos-slideshow-image
+            {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

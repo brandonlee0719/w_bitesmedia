@@ -1,0 +1,150 @@
+// SIZES
+@root-font-unit: 16;
+@root-font-size: @root-font-unit * 1px;
+
+
+@text-tiny:    11/@root-font-size;
+@text-small:   14/@root-font-size;
+@text-default: 16/@root-font-size;
+@text-medium:  22/@root-font-size;
+@text-large:   36/@root-font-size;
+@text-larger:   44/@root-font-size;
+@text-largest:  85/@root-font-size;
+@text-huge:    128/@root-font-size;
+
+.add-font('Avenir', '/fonts/AvenirNextLT_pro-Regular.ttf', @style: regular, @weight: 400);
+.add-font('Avenir', '/fonts/AvenirNextLT_pro-Medium.ttf', @style: medium, @weight: 500);
+.add-font('Avenir', '/fonts/AvenirNextLT_pro-Bold.ttf', @style: bold, @weight: 700);
+.add-font('Avenir', '/fonts/AvenirNextLT_pro-Heavy.ttf', @style: heavy, @weight: 800);
+.add-font('Avenir', '/fonts/avenir-next-heavy.ttf', @style: heavy, @weight: 900);
+.add-font('Avenir', '/fonts/avenir-next-BlackOblique.ttf', @style: italic, @weight: 900);
+.add-font('Avenir', '/fonts/AvenirNextLT_pro-It.ttf', @style: italic);
+.add-font('Avenir', '/fonts/AvenirNextLT_pro-BoldCnIt.ttf', @style: italic, @weight: 700);
+.add-font('Avenir', '/fonts/AvenirNextLT_pro-BoldCnIt.ttf', @style: italic, @weight: 700);
+  
+
+@avenir: 'Avenir', 'Helvetica', sans-serif;
+
+
+.avenir
+{
+  font-family: @avenir;
+}
+
+
+// Defaults
+
+body, html, body .apos-refreshable, html .apos-refreshable {
+  font-size: @root-font-size;
+  .avenir;
+
+  @media (max-width: @narrow)
+  {
+    font-size: 14px;
+  }
+  @media(max-width: @compact) 
+  {
+    font-size: 14px;
+  }
+}
+
+h1,h2,h3,h4,h5,h6
+{
+  color: @black;
+}
+
+h1,h2,h3,h4,h5,h6,p
+{
+  .avenir;
+  line-height: 1.35;
+}
+
+h1
+{
+  .font-size(@text-larger);
+  font-weight: 900
+}
+h2
+{
+  .font-size(@text-large);
+  font-weight: 900
+}
+
+h3
+{
+  .font-size(@text-medium);
+  font-weight: 700
+}
+h4
+{
+  .font-size(@text-default);
+  font-weight: 500
+}
+h6
+{
+  .font-size(@text-small);
+  font-weight: 500
+}
+p
+{
+  .font-size(@text-small);
+  font-weight: normal;
+  line-height: 1.75;
+}
+
+// Helpers
+
+.bt--black
+{
+  font-weight: 900;
+}
+.bt--heavy
+{
+  font-weight: 800;
+}
+.bt--bold
+{
+  font-weight: 700;
+}
+.bt--med
+{
+  font-weight: 500;
+}
+
+.f--largest
+{
+  .font-size(@text-largest);
+  @media(max-width: @narrow) {
+    .font-size(@text-larger);
+  }
+}
+.f--larger
+{
+  .font-size(@text-larger);
+  // @media(max-width: @narrow) {
+  //   .font-size(@text-large);
+  // }
+}
+.f--large
+{
+  .font-size(@text-large);
+  // @media(max-width: @narrow) {
+  //   .font-size(@text-medium);
+  // }
+}
+.f--medium
+{
+  .font-size(@text-medium);
+}
+.f--default
+{
+  .font-size(@text-default);
+}
+.f--small
+{
+  .font-size(@text-small);
+}
+.f--tiny
+{
+  .font-size(@text-tiny);
+}

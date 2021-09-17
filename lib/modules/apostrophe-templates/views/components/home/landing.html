@@ -1,0 +1,152 @@
+{% macro base(data) %}
+    <main>
+        <div class="div1_style">
+            <div class="div1_images">
+                {% for article in data.widget._pieces %}
+                    {{ positionedImage(article, loop) }}
+                {% endfor %}
+                <div class="div1_title_btn">
+                    <p>The news our students deserve.</p>
+                    <div class="flex">
+                        <div>
+                            <a href="/about-us"><p class="home_btn">LEARN MORE</p></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="div1_content">
+                <p class="div1_content_detail">The Bites content platform gives 6-12th grade educators and students trusted digital news that deepens engagement and the critical thinking required to become literate media consumers.</p>
+                <a href="/categories"><div class="see_content home_btn">
+                    <p>SEE THE CONTENT</p>
+                </div></a>
+            </div>
+        </div>
+
+        <div class="div2_style">
+            <div class="div2_title">
+                <p>Our Content.</p>
+                <div class="home-categories img-content">
+                    <div class="item" data-number="0">
+                        <a href="/categories?category=science-and-technology">
+                            <img src="/images/science.png">
+                            <span>Science &amp; Tech</span>
+                        </a>
+                    </div>
+                    <div class="item" data-number="1">
+                        <a href="/categories?category=law-and-politics">
+                            <img src="/images/law.png">
+                            <span>Law & Politics</span>
+                        </a>
+                    </div>
+                    <div class="item" data-number="2">
+                        <a href="/categories?category=sports-and-health">
+                            <img src="/images/health.png">
+                            <span>Sports & Health</span>
+                        </a>
+                    </div>
+                    <div class="item" data-number="3">
+                        <a href="/categories?category=life-and-arts">
+                            <img src="/images/life.png">
+                            <span>Life & Arts</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="div2_body">
+                <div class="div2_body_1">
+                    <p>How it Works.</p>
+                    <div class="media_box top">
+                        <div class="media_pan square_box">
+                            <p class="text">Students dive into a multi-media Bites article that accommodates their personalized learning style and presents two competing mainstream interpretations of the facts.</p>
+                        </div>
+                        <div class="media_hand">
+                            <div>
+                                <img src="/images/pointer.png" />
+                                <p >Multi-media, Multi-perspective</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div2_body_2">
+                    <div class="accessible_container">
+                        <div class="new_accessible">
+                            <div>
+                                <p>Making Vital News Accessible</p>
+                                <img src="/images/tablet.png" />
+                            </div>
+                        </div>
+                        <div class="access_pan square_box">
+                            <p class="text">Teachers quickly browse our library, updated weekly, and assign succinct articles covering the most pressing and engaging issues of our time.</p>
+                        </div>
+                    </div>
+                    <div class="access_detail">
+                        <p class="access_detail_line1"> Students engage with Bites</p>
+                        <p class="access_detail_line2">3x MORE</p>
+                        <p class="access_detail_line1">than traditional news.</p>
+                    </div>
+                </div>
+                <div class="div2_body_3">
+                    <div class="data_hand">
+                        <div>
+                            <img src="/images/graph.png" />
+                            <p>Meaningful Data</p>
+                        </div>
+                    </div>
+                    <div class="data_pan square_box">
+                        <p class="text">Educators and administrators get individual and group-wide data to make smarter instructional choices and stay accountable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div calss="div3_style">
+            <div class="div3_title">
+                <p>What they're saying.</p>
+                <div class="slider-content">
+                    <section class="text_slider slider">
+                        <div class="slide-item" data-index="0">
+                            <p>"I found it very interesting and I had a great conversation over the ethics with my teacher. I really liked the YouTube video.  It provided another thinking point." - 5th grader in Columbus, OH</p>
+                        </div>
+
+                        <div class="slide-item" data-index="1" style="color: red">
+                            <p>"I liked it because it wasn’t too long, but I still got a lot of information out of it. I’ve been trying to find a news source for someone with dyslexia." - 7th grader in New York City, NY</p>
+                        </div>
+
+                        <div class="slide-item" data-index="2" style="color: blue">
+                            <p>"Before Bites Media, I found myself collecting 3-4 articles on each topic I wanted to use in classroom discussion. It was extremely time consuming. Now I have it all in one place." - ELL teacher in Boston, MA</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="div3_body">
+                <div class="div3_body_back"></div>
+                <div class="div3_body_">
+                    <p class="div3_body_title">The Bites Difference.</p>
+                    <div class="text-content">
+                        <div class="text_item">
+                            <p>DIFFERENTIATED LEARNING</p>
+                            <span>Bites uses the principles and guidelines of Universal Design for Learning to systematically engage students of all learning styles and abilities.</span>
+                        </div>
+                        <div class="text_item">
+                            <p>NEUTRAL PERSPECTIVE</p>
+                            <span>Each Bites story is built around two differing mainstream viewpoints. By comparing multiple perspectives, students become independent and critical thinkers that are prepared to engage and curious to learn more through traditional articles.</span>
+                        </div>
+                        <div class="text_item">
+                            <p>EFFICIENT PREPARATION</p>
+                            <span>Bites saves teachers planning time and provides peace of mind every day. On average, it takes educators only 15 minutes to search and assign ready-to-use articles for classroom use.</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endmacro %}
+
+{% macro positionedImage(article, loop) %}
+    {%- set image = apos.images.first(article.marqueeImage) or null -%}
+    <div class="image_div{{loop.index0}}">
+        <img class="img{{loop.index0}}" alt="{% block imgAlt %}{{ image.title }}{% endblock %}" data-image src="{% block imgSrc %}{{ apos.attachments.url(image, { size: data.options.size, crop: image._crop }) }}{% endblock %}" />
+    </div>
+{% endmacro %}

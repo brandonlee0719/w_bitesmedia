@@ -1,0 +1,58 @@
+{% macro text(f, q, i) %}
+<div class="bt-forms-widget__answer-text">
+	<textarea class="apos-field-input" type="text" data-form-answer="{{f.slug}}_answer_{{i}}"></textarea>
+</div>
+{% endmacro %}
+
+{% macro multipleChoice(f, q, i) %}
+<div class="bt-forms-widget__answer-choices">
+		{% for choice in q.choices %}
+			<div class="bt-forms-widget__answer-choice">
+				<label class="" name="answer_{{i}}">
+						<input class="" type="radio" 
+						 data-form-answer="{{f.slug}}_answer_{{i}}"
+				     name="{{f.slug}}_answer_{{i}}" value="{{choice.option}}">
+				   <i>{{choice.option}}</i>
+				 </label>
+			</div>
+		{% endfor %}
+</div>
+{% endmacro %}
+
+{# Only display Assessments for users #}
+{% if data.user %}
+	{% set form = data.widget._pieces[0] %}
+	<div class="bt-forms-widget cf pv6" data-form-title="{{ form.title | escape }}" data-form-slug="{{ form.slug }}" data-user='{{ data.user | dump | escape }}'>
+		<div class="bt-inner">
+		  <div class="apostrophe-form w-100 apos-ui">
+				<h4>{{ form.title }}</h4>
+				{% for q in form.questions %}
+					<div class="bt-forms-widget__question cf pv5">
+						<form id="{{ form.slug }}">
+							<div class="bt-forms-widget__prompt font--medium" data-form-prompt="{{form.slug}}_prompt_{{loop.index}}" data-form-field-id="{{loop.index}}">
+								{{ q.prompt }}
+							</div>
+							{% if q.type == 'text' %}
+								{{ text(form, q, loop.index) }}
+							{% elif q.type == 'choice' %}
+								{{ multipleChoice(form, q, loop.index) }}
+							{% endif %}
+						</form>
+					</div>
+				{% endfor %}
+				<div class="cf">
+					<div class="fl">
+						<div class="bt-button bt-button--submit" data-form-submit="{{ form.slug }}">
+							<span>Submit</span><span></span>
+						</div>
+					</div>
+					<div class="fl ml3">
+						<div class="" data-form-message></div>
+					</div>
+				</div>
+		  </div>
+		</div>
+	</div>
+{% endif %}
+
+

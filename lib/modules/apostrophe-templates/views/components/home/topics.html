@@ -1,0 +1,42 @@
+{% macro base(data) %}
+
+  <div class="bt-topics-marquee">
+    <div class="topics_header">
+      <div class="topics_buttons">
+        <div class="topics_button">
+          <!-- <p id="topic-title-p"></p> -->
+          <select class="topic-selection">
+              <option value="all">All Topics</option>
+            {% for category in data.widget._pieces %}
+              <option value="{{category._id}}">{{category.title}}</option>
+            {% endfor %}
+          </select>
+          <i class="fas fa-angle-down"></i>
+        </div>
+        <div class="search_btn">
+          <i class="fas fa-search"></i>
+          <input id="topic-search" placeholder="Search" type="text" id="search-text"></input>
+        </div>
+      </div>
+      <div class="topics_title">
+        <img class="topics_image">
+        <span class="topic-title-span"></span>
+      </div>
+    </div>
+
+    <div class="topics_body">
+    </div>
+
+  </div>
+{% endmacro %}
+
+{% macro topicsTile(article, loop) %}
+  {%- set image = apos.images.first(article.marqueeImage) or null -%}
+  <div class="topics-item">
+      <img alt="{% block imgAlt %}{{ image.title }}{% endblock %}" data-image src="{% block imgSrc %}{{ apos.attachments.url(image, { size: data.options.size, crop: image._crop }) }}{% endblock %}" />
+      <div class="topics-text">
+          <h5>{{article._categories[0].title}}</h5>
+          <h3>{{article.title}}</h3>
+      </div>
+  </div>
+{% endmacro %}

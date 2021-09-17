@@ -1,0 +1,14 @@
+{
+    "fileLocations": [
+        {
+          "URIPrefixes": [
+            "https://s3-us-east-1.amazonaws.com/bites-website-assessment-submitions/csv"
+          ]
+        }
+    ],
+    "globalUploadSettings": {
+        "format": "CSV",
+        "delimiter": ",",
+        "containsHeader": "true"
+    }
+}

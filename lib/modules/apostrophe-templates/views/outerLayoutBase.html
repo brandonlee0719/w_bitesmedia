@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{% block locale %}en{% endblock %}">
+  <head>
+    {% block startHead %}
+    {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    {{ apos.assets.stylesheets(data.when) }}
+    {% block standardHead %}
+    <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+    />
+
+    {% endblock %}
+    {% block extraHead %}
+    {% endblock %}
+  </head>
+  <body class="{{ data.aposBodyClasses }} {% block bodyClass %}{% endblock %}">
+    {% block apostropheMenu %}
+      {{ apos.adminBar.output() }}
+    {% endblock %}
+
+    {% if data.user %}
+      <div class="apos-ui">
+        <div class="apos-context-menu-container">
+          {% if data.user._permissions.admin === true %}
+            {{ apos.pages.publishMenu({ publishMenu: data.publishMenu, page: data.page, piece: data.piece, bottom: true }) }}
+            {{ apos.pages.menu({ contextMenu: data.contextMenu, page: data.page, bottom: true })}}
+            {{ apos.pages.afterContextMenu() }}
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    <div class="apos-refreshable" data-apos-refreshable>
+      {% block beforeMain %}{% endblock %}
+      <a name="main"></a>
+      {% block main %}{% endblock %}
+      {% block afterMain %}{% endblock %}
+    </div>
+    {{ apos.assets.scripts(data.when) }}
+    {% block jsCalls %}
+      <script type="text/javascript">
+        {{ data.js.globalCalls }}
+        {{ data.js.reqCalls }}
+      </script>
+    {% endblock %}
+    {% block extraBody %}{% endblock %}
+  </body>
+</html>

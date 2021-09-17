@@ -1,0 +1,48 @@
+
+
+
+{% macro base(data) %}
+	<div class="apos-slideshow{% block outerClass %}{% endblock %}" data-slideshow>
+  	<div data-slideshow-items>
+		  {% for article in data.widget._pieces %}
+				{{ slide(article, loop) }}
+		  {% endfor %}
+		</div>
+	</div>
+	{% if data.widget._pieces.length > 1 %}
+	  <a href="#" data-next class="apos-slideshow-button apos-slideshow-next"><i class="fa fa-angle-right bt-color--white"></i></a>
+	  <a href="#" data-previous class="apos-slideshow-button apos-slideshow-prev"><i class="fa fa-angle-left bt-color--white"></i></a>
+	{% endif %}
+{% endmacro %}
+
+
+
+{% macro slide(article, loop) %}
+
+	{%- set image = apos.images.first(article.marqueeImage) or null -%}
+
+	<div data-slideshow-item		
+	  class="bt-home-marquee__item apos-slideshow-item{% if loop.first %} apos-current{% endif %}{% block itemClass %}{% endblock %}"
+	  style="background-image:
+	    url({{ apos.attachments.url(image, { size: data.options.size, crop: image._crop }) }})
+	    {%- if apos.attachments.hasFocalPoint(image) -%}
+	      ; background-position: {{ apos.attachments.focalPointToBackgroundPosition(image._focalPoint) }}
+	    {%- endif -%}
+	  ">
+	  <img alt="{% block imgAlt %}{{ image.title }}{% endblock %}" data-image src="{% block imgSrc %}{{ apos.attachments.url(image, { size: data.options.size, crop: image._crop }) }}{% endblock %}" />
+		<div class="bt-inner">
+			<div class="bt-home-marquee__item__body">
+				<div class="bt-home-marquee__item__title bt-color--white mb3 bt--heavy">
+					{{ article.title }}
+				</div>
+				<div class="bt-home-marquee__item__subtitle bt-color--white">
+					{{ article.subtitle }}
+				</div>
+				<div class="bt-home-marquee__item__button">
+					<a href="{{ article._url }}" class="bt-button"><span>Read It</span><span></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+

@@ -1,0 +1,152 @@
+.bt-button
+{
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+
+	// text & white bg
+	span:nth-of-type(1)
+	{
+		position: relative;
+		display: inline-block;
+		z-index: 3;
+
+		padding: 5px 2rem;
+		min-width: 185px;
+
+		.f--medium;
+		line-height: 42.13px;
+		text-transform: uppercase;
+		text-align: center;
+		text-decoration: none;
+		font-weight: 700;
+		color: @blue;
+
+		background: @white;
+		border-radius: 3px;
+		border: 2px solid @blue;
+
+		.transform(translate3d(0, 0, 0));
+		.transition(all @t1 ease);
+
+		@media(max-width: @compact)
+		{
+			min-width: 184px;
+			line-height: 40px;
+			font-size: 1.25rem;
+		}
+	}
+
+
+	// blue bg
+	span:nth-of-type(2)
+	{
+		position: absolute;
+		z-index: 0;
+		display: inline-block;
+		top: 19px;
+		left: -16px;
+		content: '';
+
+		width: 100%;
+		height: 100%;
+
+		background: @blue;
+		border-radius: 3px;
+
+		.transition(all @t1 ease);
+
+
+		// triangle top left
+		&::before 
+		{
+			position: absolute;
+			top: -19px;
+			left: 0;
+
+			width: 0;
+			height: 0;
+			
+			border-style: solid;
+			border-width: 0 0 19px 16px;
+			border-color: transparent transparent @blue transparent;
+			content: '';
+			.transition(all @t1 ease);
+		}
+
+		// triangle bottom right 
+		&::after 
+		{
+			position: absolute;
+			bottom: 0;
+			right: -16px;
+
+			width: 0;
+			height: 0;
+			
+			border-style: solid;
+			border-width: 19px 16px 0 0;
+			border-color: @blue transparent transparent transparent;
+			content: '';
+
+			.transition(all @t1 ease-in-out);
+		}
+	}
+
+	
+	&:hover 
+	{
+		// text & white bg
+		span:nth-of-type(1)
+		{
+			.transform(translate3d(3px, -4px, 0));
+		}
+
+			// blue bg
+		span:nth-of-type(2)
+		{
+			
+			&::before 
+			{
+				top: -23px;
+				border-width: 0 0 23px 19px;
+				// border-color: transparent transparent darken(@blue, 20%) transparent;
+			}
+			&::after 
+			{
+				right: -19px;
+				border-width: 23px 19px 0 0;
+				// border-color: darken(@blue, 20%) transparent transparent transparent;
+			}
+		}
+	}
+
+	&:active 
+	{
+		// text & white bg
+		span:nth-of-type(1)
+		{
+			border: 2px solid darken(@blue, 20%);
+			.transform(translate3d(-3px, 4px, 0));
+		}
+
+			// blue bg
+		span:nth-of-type(2)
+		{
+			background: darken(@blue, 20%);
+			
+			&::before 
+			{
+				top: -15px;
+				border-width: 0 0 15px 13px;
+				border-color: transparent transparent darken(@blue, 20%) transparent;
+			}
+			&::after 
+			{
+				right: -13px;
+				border-width: 15px 13px 0 0;
+				border-color: darken(@blue, 20%) transparent transparent transparent;
+			}
+		}
+	}
+}

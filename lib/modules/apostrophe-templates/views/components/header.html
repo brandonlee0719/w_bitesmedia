@@ -1,0 +1,78 @@
+{% macro base(page, piece) %}
+{% if page.type === 'apostrophe-blog-page' %}
+<div class="bt-header-block "></div>
+{% endif %}
+<div class="bt-header {% if page.type === 'apostrophe-blog-page' %} bt-header--fixed{% endif %}
+						{% if data.user %} bt-header-blueback {% endif %}">
+	<div class="bt-inner">
+		<div class="cf">
+			<div class="fl w-auto">
+				<a href="/">
+					{% if data.user %}
+					<img class="bt-logo" src="/images/bites_logo_bw.png" height="60" alt="BitesMedia Logo">
+					{% else %}
+					<img class="bt-logo-alternate" src="/images/bites_logo_blue.png" alt="BitesMedia Logo">
+					{% endif %}
+				</a>
+			</div>
+
+			<div class="fr ml3">
+				{% if data.user %}
+				<div class="header_style_user">
+					<div class="header_button_user">
+						<!--<a href="#"><img src="/images/header_icon1.png"></a>-->
+						<a id="highlight-icon"><img src="/images/header_icon2.png"></a>
+						<a id="highlight-icon-1"><img src="/images/header_icon2_1.png"></a>
+						<a id="write-note"><img src="/images/header_icon3.png"></a>
+						<a id="sound-icon"><img src="/images/header_icon4.png"></a>
+						<!--<a href="#"><img src="/images/header_icon5.png"></a>-->
+					</div>
+					<div class="bt-header__user">
+						{{ module.fullNameToInitials(data.user.title) }}
+						<div class="bt-header__user__menu">
+							<a href="/logout">Logout</a>
+						</div>
+					</div>
+				</div>
+				{% else %}
+				<div class="header_style">
+					<div class="header_button">
+						<a class="hide-on-mobile" href="/categories">BROWSE CONTENT</a>
+						<a class="hide-on-mobile" href="/about-us/approved-sources">APPROVED SOURCES</a>
+						<a class="hide-on-mobile" href="/about-us">ABOUT US</a>
+						<a href="/login">
+							<div class="sign_in">
+								<p>SIGN IN</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+			{% if page.type === 'apostrophe-blog-page'  %}
+				<div class="w-auto speach-area">
+					<img id="bt-text-to-speach-button" class="bt-text-to-speach-button dim pointer" src="/images/bites_text-to-speach-icon.png" width="50" height="50" alt="">
+				</div>
+				<div class="w-auto">
+					<div id="bt-text-to-speach"></div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	{% if page.type === 'apostrophe-blog-page' %}
+	<div class="bt-progress-bar">
+		<div class="bt-inner">
+			<div class="cf bt-progress-bar-container">
+				<div class="bt-progress-bar__title">
+					{{ piece.title }}
+				</div>
+				<div class="bt-progress-bar__container">
+					<div class="bt-progress-bar__empty"></div>
+					<div class="bt-progress-bar__percent"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
+{% endmacro %}

@@ -1,0 +1,16 @@
+{% extends 'apostrophe-templates:layout.html' %}
+
+
+{% block bodyClass %}bt-sign-up{% endblock %}
+
+{% block marquee %}
+
+{% endblock %}
+
+
+{% block mainContent %}
+ <div class="bt-sign-up-form pv5">
+ 	<h2 class="mv4">Create an Account</h2>
+ 	{{ apos.singleton(data.page, 'submit', 'apostrophe-users-submit') }}
+ </div>
+{% endblock %}

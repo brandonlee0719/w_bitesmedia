@@ -1,0 +1,20 @@
+{% import 'apostrophe-templates:components/home/popular.html' as popularTile with context %}
+
+<div class="popular_bites">
+    <div class="popular_content">
+        <div class="popular-item first">
+            <div class="popular-text">
+                <h3>Popular <br/> Bites</h3>
+                <h5 class="all-view">VIEW ALL</h5>
+            </div>
+        </div>
+
+        {% for article in data.widget._pieces %}
+            {{ popularTile.base(article, loop) }}
+        {% endfor %}
+
+        <div class="button-container">
+            <div class="read_btn all-view">View All</div>
+        </div>
+    </div>
+</div>

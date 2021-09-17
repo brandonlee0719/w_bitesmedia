@@ -1,0 +1,17 @@
+{% import 'apostrophe-templates:components/home/topic.html' as homeTopic with context %}
+
+{% macro marquee(data) %}
+    <div class="bt-home-marquee">
+        <div class="slider-content">
+            {{ apos.singleton(data.page, 'homeMarquee', 'bt-home-marquee', {} ) }}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro base(data) %}
+    <div class="main_user">
+        <div>
+            {{ apos.singleton(data.page, 'homeTopics', 'bt-topics', {} ) }}
+        </div>
+    </div>
+{% endmacro %}

@@ -1,0 +1,53 @@
+.bt-footer
+{
+	.apos-rich-text
+	{
+		margin: 2rem 0;
+
+		a {
+			color: @white;
+		}
+		p + p
+		{
+			margin-top: 1rem;
+		}
+		h1,h2,h3,h4,h5,h6,p,li 
+		{
+			color: @white;
+		}
+	}
+
+	@media(max-width: @compact) {
+		.bt-logo-footer.bt-logo {
+			margin: 20px 0 20px;
+		}
+		.footer_ {
+			padding: 20px 0 0 20px !important;
+		}
+		.cf {
+			display: block;
+
+			.w-70 {
+				width: 100%;
+				text-align: center;
+				margin-top: 30px;
+			}
+		}
+
+		.project_info {
+			display: block !important;
+			height: auto !important;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			p {
+				margin-bottom: 15px;
+				width: 100% !important;
+				margin-left: 20px;
+			}
+
+			p.text2 {
+				margin-left: 0 !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,148 @@
+.bt-header
+{
+	background: @blue;
+	color: @white;
+
+	@media(max-width: @compact) {
+		padding-top: 0;
+
+		// logo
+		.fl.w-auto:first-of-type
+		{
+			padding-top:0.70rem;
+		}
+
+		.bt-header__login {
+		   top: 27px;
+		}
+	}
+
+	&.bt-header--fixed
+	{
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 401;
+	}
+
+	.pt2;
+
+	img 
+	{
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
+
+		@media(max-width: @compact) {
+			margin-bottom: 0.5rem;
+			margin-top: 0.5rem;
+		}
+
+		&.bt-logo
+		{
+			@media(max-width: @compact) {
+				width: 147px;
+				height: 35px;
+			}
+		}
+	}
+
+	.bt-header__login
+	{
+		position: relative;
+		top: 35px;
+
+		@media(max-width: @compact) {
+			top: 27px;
+		}
+	}
+
+	.bt-text-to-speach-button
+	{
+		margin-right: 1rem;
+		cursor: pointer;
+	}
+
+	.bt-header__user
+	{
+		position: relative;
+		.fr;
+		width: 84px;
+		height: 84px;
+		margin-bottom: 0.5rem;
+
+		text-align: center;
+		.font-size(@text-medium);
+		line-height: 84px;
+		color: @white;
+
+		background-color: @blue-light;
+		border-radius: 100%;
+		cursor: pointer;
+
+		@media(max-width: @compact) {
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+
+		}
+
+		.bt-header__user__menu
+		{
+			position: absolute;
+			width: 120px;
+			z-index: 2;
+			bottom: -100%;
+			right: 30px;
+			background: @white;
+			box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+			a 
+			{
+				color: @blue;
+				.font-size(@text-default);
+				.pv2;
+				.ph3;
+				.tl;
+
+				&:hover 
+				{
+					color: @blue-light;
+				}
+			}
+
+
+
+			opacity: 0;
+			pointer-events: none;
+
+			.transition(opacity @t1 ease);
+			&.bt--active
+			{
+				opacity: 1;
+				pointer-events: all;
+			}
+
+			// Triangle
+			&::before 
+			{
+				position: absolute;
+				top: -14px;
+				right: 0;
+				width: 0; 
+			  height: 0;
+			  border-left: 14px solid transparent;
+			  border-right: 14px solid transparent;
+			  border-bottom: 14px solid @white;
+			  border-radius: 2px;
+			  content: '';
+			}
+		}
+	}
+}
+.bt-header-block
+{
+	position: relative;
+	height: 108px;
+}

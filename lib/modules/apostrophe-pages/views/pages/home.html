@@ -1,0 +1,22 @@
+{% extends 'apostrophe-templates:layout.html' %}
+{% block bodyClass %}bt-home{% endblock %}
+
+{% block marquee %}
+    {% if data.user or data.page.path != '/'  %}
+        <div class="bt-home-marquee">
+            <div class="slider-content">
+                {{ apos.singleton(data.page, 'homeMarquee', 'bt-home-marquee', {} ) }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+    {% if data.user or data.page.path != '/' %}
+        {{ apos.singleton(data.page, 'topics', 'bt-categories', {} ) }}
+        {{ apos.singleton(data.page, 'popularBites', 'bt-popular-bites', {} ) }}
+        {{ apos.singleton(data.page, 'bitesBreakdown', 'bt-poll', {} ) }}
+    {% else %}
+        {{ apos.singleton(data.page, 'landingPage', 'bt-landing', {} ) }}
+    {% endif %}
+{% endblock %}
